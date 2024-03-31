@@ -4,6 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dynamic Countdown Timer</title>
+<style>
+  body {
+    background-color: #222; /* Dark grey background color */
+    color: white; /* Text color */
+    font-family: Arial, sans-serif; /* Font family */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add some padding for better spacing */
+  }
+
+  h1 {
+    margin-bottom: 20px; /* Add some margin below the heading */
+  }
+
+  form {
+    margin-bottom: 20px; /* Add some margin below the form */
+  }
+
+  label {
+    display: block; /* Display labels as block elements */
+    margin-bottom: 5px; /* Add some margin below each label */
+  }
+
+  input[type="number"] {
+    width: 60px; /* Set the width of number inputs */
+  }
+
+  button {
+    background-color: #007bff; /* Blue button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Add padding to the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border-radius */
+    cursor: pointer; /* Add pointer cursor */
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+
+  #timer {
+    font-size: 2em; /* Increase font size for timer */
+    margin-top: 20px; /* Add some margin above the timer */
+  }
+</style>
 </head>
 <body>
   <h1>Countdown Timer</h1>
