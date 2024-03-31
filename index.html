@@ -72,6 +72,16 @@
       let hours = parseInt(document.getElementById("hours").value);
       let minutes = parseInt(document.getElementById("minutes").value);
       let seconds = parseInt(document.getElementById("seconds").value);
+
+      
+
+      // Generate the URL with countdown parameters
+      let countdownURL = `https://cloudyincs.github.io/CountDownTimer/?hours=${hours}&minutes=${minutes}&seconds=${seconds}`;
+    
+      // Redirect the user to the CountdownTimer page
+      window.location.href = countdownURL;
+
+      
   
       // Calculate total duration in milliseconds
       let totalMilliseconds = (hours * 3600 + minutes * 60 + seconds) * 1000;
