@@ -73,14 +73,40 @@
       let minutes = parseInt(document.getElementById("minutes").value);
       let seconds = parseInt(document.getElementById("seconds").value);
 
+
       
 
-      // Generate the URL with countdown parameters
-      let countdownURL = `https://cloudyincs.github.io/CountDownTimer/?hours=${hours}&minutes=${minutes}&seconds=${seconds}`;
+      // Prepare the payload
+      let payload = {
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+      };
     
-      // Redirect the user to the CountdownTimer page
-      window.location.href = countdownURL;
+      // Send a POST request to the CountdownTimer endpoint
+      fetch('https://your-countdown-timer-url.com/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data); // Log the response from the server
+      })
+      .catch(error => {
+        console.error('There was a problem with your fetch operation:', error);
+      });
+    });
+    
 
+      
       
   
       // Calculate total duration in milliseconds
