@@ -79,9 +79,11 @@
       // Clear existing timer interval if it exists
       clearInterval(timerInterval);
   
-      // Update countdown timer on the page
-      let endTime = new Date().getTime() + totalMilliseconds;
-      updateTimer(endTime);
+       // Update countdown timer on the page after a slight delay
+      setTimeout(() => {
+        let endTime = new Date().getTime() + totalMilliseconds;
+        updateTimer(endTime);
+      }, 100); // Adjust the delay time as needed
     });
   
     let timerInterval; // Variable to store timer interval
