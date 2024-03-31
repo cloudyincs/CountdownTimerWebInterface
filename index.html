@@ -63,34 +63,39 @@
 
   <div id="timer"></div>
 
-  <script>
+    <script>
     // Function to handle form submission
     document.getElementById("countdownForm").addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent the default form submission
-
+  
       // Capture input values
-      var hours = parseInt(document.getElementById("hours").value);
-      var minutes = parseInt(document.getElementById("minutes").value);
-      var seconds = parseInt(document.getElementById("seconds").value);
-
+      let hours = parseInt(document.getElementById("hours").value);
+      let minutes = parseInt(document.getElementById("minutes").value);
+      let seconds = parseInt(document.getElementById("seconds").value);
+  
       // Calculate total duration in milliseconds
-      var totalMilliseconds = (hours * 3600 + minutes * 60 + seconds) * 1000;
-
+      let totalMilliseconds = (hours * 3600 + minutes * 60 + seconds) * 1000;
+  
+      // Clear existing timer interval if it exists
+      clearInterval(timerInterval);
+  
       // Update countdown timer on the page
-      var endTime = new Date().getTime() + totalMilliseconds;
+      let endTime = new Date().getTime() + totalMilliseconds;
       updateTimer(endTime);
     });
-
+  
+    let timerInterval; // Variable to store timer interval
+  
     // Function to update countdown timer
     function updateTimer(endTime) {
-      var timerInterval = setInterval(function() {
-        var currentTime = new Date().getTime();
-        var remainingTime = endTime - currentTime;
-
-        var hours = Math.floor(remainingTime / (1000 * 60 * 60));
-        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
+      timerInterval = setInterval(function() {
+        let currentTime = new Date().getTime();
+        let remainingTime = endTime - currentTime;
+  
+        let hours = Math.floor(remainingTime / (1000 * 60 * 60));
+        let minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+  
         if (remainingTime <= 0) {
           clearInterval(timerInterval);
           document.getElementById("timer").innerHTML = "Countdown Ended";
